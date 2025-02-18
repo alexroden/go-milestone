@@ -27,10 +27,8 @@ func (s *MilestoneSuite) TestSteps() {
 	m := GetInstance()
 
 	s.NotEmpty(m.reports)
-	s.Equal([]*report{
-		{Time: 1},
-		{Time: 2},
-	}, m.reports)
+	s.True(m.reports[0].Time > 1000 && m.reports[0].Time < 2000)
+	s.True(m.reports[1].Time > 2000 && m.reports[1].Time < 3000)
 }
 
 func (s *MilestoneSuite) TestReport() {
@@ -41,10 +39,10 @@ func (s *MilestoneSuite) TestReport() {
 
 	s.IsType([]*report{}, r)
 	s.Len(r, 2)
-	s.Equal([]*report{
-		{Step: 1, Time: 1},
-		{Step: 2, Time: 2},
-	}, r)
+	s.Equal(1, r[0].Step)
+	s.True(r[0].Time > 1000 && r[0].Time < 2000)
+	s.Equal(2, r[1].Step)
+	s.True(r[1].Time > 2000 && r[1].Time < 3000)
 }
 
 func (s *MilestoneSuite) TestMessage() {
@@ -62,10 +60,11 @@ func (s *MilestoneSuite) TestMessage() {
 	s.NoError(err)
 
 	s.IsType([]*report{}, r)
-	s.Equal([]*report{
-		{Step: 1, Time: 1, Message: message},
-		{Step: 2, Time: 2},
-	}, r)
+	s.Equal(1, r[0].Step)
+	s.True(r[0].Time > 1000 && r[0].Time < 2000)
+	s.Equal(message, r[0].Message)
+	s.Equal(2, r[1].Step)
+	s.True(r[1].Time > 2000 && r[1].Time < 3000)
 }
 
 func (s *MilestoneSuite) TestEnd() {

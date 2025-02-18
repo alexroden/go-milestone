@@ -19,7 +19,7 @@ Firstly, you will need to `Start` Milestone:
 gomilestone.Start()
 ```
 
-After this you can then start to put `Step`s within your code base, which will mark in seconds the time between the `Start`, and each `Step`:
+After this you can then start to put `Step`s within your code base, which will mark in milliseconds the time between the `Start`, and each `Step`:
 ```go
 gomilestone.Step()
 ```

@@ -43,7 +43,7 @@ func Step(opts ...Setter) error {
 	n := now()
 	duration := n.Sub(instance.init)
 	instance.reports = append(instance.reports, &report{
-		Time:    int(duration.Seconds()),
+		Time:    int(duration.Milliseconds()),
 		Message: instance.message,
 	})
 
