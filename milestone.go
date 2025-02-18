@@ -69,6 +69,12 @@ func Report() ([]*report, error) {
 	return result, nil
 }
 
+func End() {
+	instance = &Milestone{
+		Opt: &Opt{},
+	}
+}
+
 func GetInstance() *Milestone {
 	return instance
 }

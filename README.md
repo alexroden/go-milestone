@@ -36,5 +36,10 @@ This report is a Slice of report objects, containing the `Step` number, `Time` b
 
 You can also get the Milestone instance at anypoint by calling `GetInstance`.
 
+You can also `End` your Milestone report at any point by calling:
+```go
+gomilestone.End()
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

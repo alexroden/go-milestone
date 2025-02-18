@@ -68,6 +68,15 @@ func (s *MilestoneSuite) TestMessage() {
 	}, r)
 }
 
+func (s *MilestoneSuite) TestEnd() {
+	s.IntiateSteps()
+	s.Len(instance.reports, 2)
+
+	End()
+	s.Empty(instance.reports)
+	s.True(instance.init.IsZero())
+}
+
 // In order for 'go test' to run this suite, we need to create
 // a normal test function and pass our suite to suite.Run
 func TestMilestoneSuite(t *testing.T) {
